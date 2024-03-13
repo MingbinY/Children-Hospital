@@ -34,6 +34,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!currentInteractable) return;
         if (other.gameObject == currentInteractable.gameObject)
         {
             canInteract = true;
