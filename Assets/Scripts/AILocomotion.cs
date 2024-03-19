@@ -25,6 +25,8 @@ public class AILocomotion : MonoBehaviour
     public List<Transform> waypoints;
     int waypointIndex = 0;
 
+    public float gameOverDist = 1f;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -77,7 +79,7 @@ public class AILocomotion : MonoBehaviour
     {
         if (CanCatchPlayer())
         {
-            Debug.Log("Player Caught");
+            GameManager.Instance.GameOver();
             return;
         }
         agent.SetDestination(target.transform.position);
@@ -109,6 +111,7 @@ public class AILocomotion : MonoBehaviour
     }
     bool CanCatchPlayer()
     {
+        if (Vector3.Distance(transform.position, target.transform.position) <= gameOverDist) return true;
         return false;
     }
     #endregion

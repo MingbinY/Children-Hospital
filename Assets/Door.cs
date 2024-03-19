@@ -27,5 +27,6 @@ public class Door : MonoBehaviour
         if (isLocked) return;
 
         //Next Level
+        GameManager.Instance.LoadNextLevel();
     }
 }

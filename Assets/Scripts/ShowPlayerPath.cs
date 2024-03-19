@@ -17,7 +17,7 @@ public class ShowPlayerPath : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         UpdatePath();
     }
