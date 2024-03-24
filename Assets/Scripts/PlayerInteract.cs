@@ -7,6 +7,7 @@ public class PlayerInteract : MonoBehaviour
 {
     NavMeshAgent agent;
 
+    [SerializeField]
     Interactable currentInteractable;
     bool canInteract = false;
 
@@ -28,7 +29,6 @@ public class PlayerInteract : MonoBehaviour
         Debug.Log("Player Interact with obj");
         currentInteractable.OnInteract();
         canInteract = false;
-        Destroy(currentInteractable.gameObject);
         currentInteractable = null;
     }
 

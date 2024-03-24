@@ -33,10 +33,14 @@ public class AILocomotion : MonoBehaviour
         target = FindObjectOfType<PlayerInput>().gameObject;
         fov = GetComponent<AiFOV>();
 
-        waypointIndex = 0;
+        waypointIndex = -1;
         waitTimer = 0f;
 
         currentState = defaultState;
+        if (currentState == AiStates.Patrol)
+        {
+            Patrol(true);
+        }
     }
     private void Update()
     {
@@ -70,6 +74,7 @@ public class AILocomotion : MonoBehaviour
         if (CanSeeTarget())
         {
             currentState = AiStates.Chase;
+            FindObjectOfType<ScaryController>().isSeen = true;
             return;
         }
         Patrol();
@@ -86,7 +91,7 @@ public class AILocomotion : MonoBehaviour
     }
     #endregion
     #region Actions
-    void Patrol()
+    void Patrol(bool firstTime = false)
     {
         if (agent.hasPath) return;
 
@@ -95,6 +100,7 @@ public class AILocomotion : MonoBehaviour
         if (waitTimer >= patrolWaitTime)
         {
             waitTimer = 0;
+
             waypointIndex++;
             if (waypointIndex >= waypoints.Count)
             {

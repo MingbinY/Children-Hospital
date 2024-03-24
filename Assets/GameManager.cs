@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameObject killAnimCanvas;
+    public bool isScary = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -53,7 +55,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         if (killAnimCanvas != null) killAnimCanvas.SetActive(true);
-
+        //FindObjectOfType<BGMManager>().gameObject.SetActive(false);
         FindObjectOfType<PlayerLocomotion>().gameObject.SetActive(false);
         AILocomotion[] ais = FindObjectsOfType<AILocomotion>();
         foreach(AILocomotion ai in ais)

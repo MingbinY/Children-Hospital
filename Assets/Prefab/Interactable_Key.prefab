@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.77920896, y: 0.026047332, z: 0.032454304, w: -0.62538123}
   m_LocalPosition: {x: 4.237, y: 0.233, z: -2.904}
-  m_LocalScale: {x: 0.37, y: 0.37, z: 0.37}
+  m_LocalScale: {x: 0.009249998, y: 0.009249998, z: 0.00925}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5836391803574651642}
@@ -125,7 +125,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8293502599545092565}
         m_TargetAssemblyTypeName: Key, Assembly-CSharp
-        m_MethodName: UnlockDoor
+        m_MethodName: CardCollected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorToUnlock: {fileID: 0}
+  scanner: {fileID: 0}
   keyObj: {fileID: 6608143775655120960}
   rotSpeed: 0
 --- !u!1001 &6302152234883673361

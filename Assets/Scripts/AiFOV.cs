@@ -8,6 +8,8 @@ public class AiFOV : MonoBehaviour
     [Range(0,360)]
     public float viewAngle;
 
+    public float viewMeshHeight = 0;
+
     public Color defaultColor = Color.red;
     public Color alertColor = Color.red;
 

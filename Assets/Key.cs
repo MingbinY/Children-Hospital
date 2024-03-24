@@ -17,6 +17,7 @@ public class Key : MonoBehaviour
     public void CardCollected()
     {
         scanner.cardCollected = true;
+        Destroy(gameObject);
     }
 
     private void Update()
