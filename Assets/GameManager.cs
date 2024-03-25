@@ -31,12 +31,15 @@ public class GameManager : MonoBehaviour
     public void LoadNextLevel()
     {
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
-        if (currentIndex < SceneManager.sceneCount)
+        Debug.Log("Current Scene " + currentIndex + ", Scene Count" + SceneManager.sceneCountInBuildSettings);
+        if (currentIndex < SceneManager.sceneCountInBuildSettings)
         {
+            Debug.Log("Load Scene " + (currentIndex + 1) );
             SceneManager.LoadScene(currentIndex + 1);
         }
         else
         {
+            Debug.Log("Exit Game");
             Invoke("ExitGame", 1f);
         }
         
